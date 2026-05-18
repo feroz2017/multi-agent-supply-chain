@@ -1,5 +1,6 @@
 import asyncio
 import json
+import random
 from spade.agent import Agent
 from spade.behaviour import OneShotBehaviour
 from spade.message import Message
@@ -12,16 +13,17 @@ class SupplierMonitorAgent(Agent):
             print("[SupplierMonitor] Scanning supplier signals...")
             await asyncio.sleep(2)
 
-            # Fake supplier anomaly data
+            # Randomised each run — outcomes vary so plan selection is non-deterministic
             anomaly = {
-                "supplier": "TaiwanChipCo",
+                "supplier":           "TaiwanChipCo",
                 "credit_rating_drop": True,
-                "payment_delays": 3,
-                "anomaly_score": 0.82,
+                "payment_delays":     random.randint(1, 5),
+                "anomaly_score":      round(random.uniform(0.72, 0.95), 2),
             }
 
             print(f"[SupplierMonitor] Anomaly detected — {anomaly['supplier']} "
-                  f"(score={anomaly['anomaly_score']})")
+                  f"(score={anomaly['anomaly_score']}, "
+                  f"payment_delays={anomaly['payment_delays']})")
 
             msg = Message(to="risk_assessor@localhost")
             msg.set_metadata("performative", "inform")

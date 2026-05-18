@@ -4,19 +4,37 @@
       "name": "SupplierMonitor",
       "jid": "supplier_monitor@localhost",
       "password": "monitorpass",
-      "web_port": 10003
+      "web_port": 10005
+    },
+    {
+      "name": "LogisticsMonitor",
+      "jid": "logistics_monitor@localhost",
+      "password": "logisticspass",
+      "web_port": 10004
     },
     {
       "name": "RiskAssessor",
       "jid": "risk_assessor@localhost",
       "password": "assessorpass",
-      "web_port": 10002
+      "web_port": 10003
     },
     {
       "name": "Negotiator",
       "jid": "negotiator@localhost",
       "password": "negotiatorpass",
+      "web_port": 10002
+    },
+    {
+      "name": "RouteOptimiser",
+      "jid": "route_optimiser@localhost",
+      "password": "routepass",
       "web_port": 10001
+    },
+    {
+      "name": "InventoryRebalancer",
+      "jid": "inventory_rebalancer@localhost",
+      "password": "inventorypass",
+      "web_port": 10000
     }
   ]
 }
